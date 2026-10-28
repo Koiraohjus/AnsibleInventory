@@ -1,0 +1,10 @@
+---
+- name: Install common packages
+  hosts: all
+
+  tasks:
+
+    - name: Install packages
+      apk:
+        name: "{{ common_packages }}"
+        state: present

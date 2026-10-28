@@ -1,0 +1,25 @@
+---
+- name: Configure clients and servers
+  hosts: client,server
+
+  tasks:
+
+    - name: Generate network config
+      template:
+        src: host_interfaces.j2
+        dest: /etc/network/interfaces
+        backup: yes
+
+- name: Configure router
+  hosts: router
+
+  tasks:
+
+    - name: Generate router config
+      template:
+        src: router_interfaces.j2
+        dest: /etc/network/interfaces
+        backup: yes
+
+    - name: Enable IP forwarding
+      command: sysctl -w net.ipv4.ip_forward=1

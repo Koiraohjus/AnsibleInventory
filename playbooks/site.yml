@@ -1,0 +1,4 @@
+---
+- import_playbook: configure_network.yml
+
+- import_playbook: packages.yml

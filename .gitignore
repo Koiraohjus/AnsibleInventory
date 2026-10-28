@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Ansible
+*.retry
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Linux
+*~

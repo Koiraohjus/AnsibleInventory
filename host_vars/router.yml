@@ -1,0 +1,10 @@
+router_interfaces:
+  - name: eth0
+    address: 10.1.1.1
+    netmask: 255.255.255.0
+
+  - name: eth1
+    address: 10.2.2.1
+    netmask: 255.255.255.0
+
+ip_forward: true

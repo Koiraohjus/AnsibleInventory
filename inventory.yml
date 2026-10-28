@@ -1,0 +1,11 @@
+all:
+  hosts:
+    router:
+      ansible_host: 192.168.122.170
+
+    client:
+      ansible_host: 192.168.122.44
+
+    server:
+      ansible_host: 192.168.122.71
+

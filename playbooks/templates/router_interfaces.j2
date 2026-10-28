@@ -1,0 +1,10 @@
+auto lo
+iface lo inet loopback
+
+{% for iface in router_interfaces %}
+auto {{ iface.name }}
+iface {{ iface.name }} inet static
+    address {{ iface.address }}
+    netmask {{ iface.netmask }}
+
+{% endfor %}

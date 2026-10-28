@@ -1,0 +1,11 @@
+ansible_user: root
+ansible_python_interpreter: /usr/bin/python3
+
+common_packages:
+  - bash
+  - curl
+  - nano
+  - vim
+  - tcpdump
+  - traceroute
+  - iproute2

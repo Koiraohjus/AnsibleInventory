@@ -1,0 +1,12 @@
+---
+- name: Show facts
+  hosts: all
+
+  tasks:
+    - name: Show hostname
+      debug:
+        var: ansible_hostname
+
+    - name: Show default IP
+      debug:
+        var: ansible_default_ipv4.address
