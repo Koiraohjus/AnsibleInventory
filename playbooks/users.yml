@@ -1,0 +1,18 @@
+---
+- name: Create admin user
+  hosts: all
+
+  tasks:
+    - name: Create user
+      user:
+        name: admin
+        password: $6$57V2WxIc5MHG0x79$E11YR3NY2f0bf8yTV/WWn1MkXT99WQyG69IIx2vN6MN.xgxbmfhTFqqWmTZxyZYQA2NEenUaZT77imI7qgeyV/
+        groups: wheel
+        append: yes
+        state: present
+
+    - name: Install SSH key
+      authorized_key:
+        user: admin
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"

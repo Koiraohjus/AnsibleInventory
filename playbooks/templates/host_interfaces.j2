@@ -1,11 +1,13 @@
 auto lo
 iface lo inet loopback
 
-auto {{ interface }}
-iface {{ interface }} inet static
-    address {{ address }}
-    netmask {{ netmask }}
-    
-{% if gateway is defined %}
-    gateway {{ gateway }}
-{% endif %}
+auto eth0
+iface eth0 inet dhcp
+
+{% for iface in host_interfaces %}
+auto {{ iface.name }}
+iface {{ iface.name }} inet static
+    address {{ iface.address }}
+    netmask {{ iface.netmask }}
+
+{% endfor %}
