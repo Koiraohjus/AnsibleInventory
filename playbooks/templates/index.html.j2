@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ inventory_hostname }}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .card {
+            max-width: 700px;
+            margin: auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Ansible Home Lab</h1>
+
+        <p>This web page was automatically deployed using Ansible and Docker.</p>
+
+        <h2>Host</h2>
+        <p>{{ inventory_hostname }}</p>
+
+        <h2>Technologies</h2>
+
+        <ul>
+            <li>✅ Ansible</li>
+            <li>✅ Alpine Linux</li>
+            <li>✅ Docker</li>
+            <li>✅ Nginx</li>
+            <li>✅ Jinja2 Templates</li>
+        </ul>
+
+        <h2>Features</h2>
+
+        <ul>
+            <li>✅ Network Automation</li>
+            <li>✅ User Management</li>
+            <li>✅ SSH Key Authentication</li>
+            <li>✅ Package Management</li>
+            <li>✅ Docker Deployment</li>
+            <li>✅ Custom Nginx Website</li>
+        </ul>
+
+        <h2>Infrastructure</h2>
+
+        <p>Router → Client → Server</p>
+
+        <hr>
+
+        <p>Built with Ansible Infrastructure as Code</p>
+    </div>
+</body>
+</html>

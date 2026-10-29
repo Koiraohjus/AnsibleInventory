@@ -1,0 +1,30 @@
+---
+- name: Deploy Nginx
+  hosts: server
+  become: true
+
+  tasks:
+
+    - name: Create website directory
+      file:
+        path: /opt/website
+        state: directory
+
+    - name: Generate website
+      template:
+        src: ../templates/index.html.j2
+        dest: /opt/website/index.html
+
+    - name: Check if nginx container exists
+      command: docker ps -a --format "{{'{{'}}.Names{{'}}'}}"
+      register: containers
+      changed_when: false
+
+    - name: Start nginx container
+      command: >
+        docker run -d
+        --name nginx
+        -p 80:80
+        -v /opt/website:/usr/share/nginx/html:ro
+        nginx
+      when: "'nginx' not in containers.stdout"

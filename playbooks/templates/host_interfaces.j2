@@ -9,5 +9,8 @@ auto {{ iface.name }}
 iface {{ iface.name }} inet static
     address {{ iface.address }}
     netmask {{ iface.netmask }}
+{% endfor %}
 
+{% for route in static_routes %}
+up ip route add {{ route.network }} via {{ route.via }}
 {% endfor %}

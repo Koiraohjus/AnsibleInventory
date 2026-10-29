@@ -10,6 +10,16 @@
         dest: /etc/network/interfaces
         backup: yes
 
+    - name: Check existing routes
+      command: ip route
+      register: current_routes
+      changed_when: false
+
+    - name: Add static routes
+      command: ip route add {{ item.network }} via {{ item.via }}
+      loop: "{{ static_routes }}"
+      when: item.network not in current_routes.stdout
+
 - name: Configure router
   hosts: router
 
@@ -28,5 +38,11 @@
         state: present
         reload: true
 
+    - name: Check NAT rules
+      command: iptables -t nat -S POSTROUTING
+      register: nat_rules
+      changed_when: false
+
     - name: Enable masquerading
       command: iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+      when: "'-A POSTROUTING -o eth0 -j MASQUERADE' not in nat_rules.stdout"

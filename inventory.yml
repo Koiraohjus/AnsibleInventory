@@ -1,5 +1,7 @@
+#Inventory of devices.
 all:
   hosts:
+    #Ansible searchs according to name from e.g. host_vars/router.yml
     router:
       ansible_host: 10.201.50.251
 

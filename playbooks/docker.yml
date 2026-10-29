@@ -1,0 +1,16 @@
+---
+- name: Install Docker
+  hosts: server
+  become: true
+
+  tasks:
+    - name: Install Docker
+      community.general.apk:
+        name: docker
+        state: present
+
+    - name: Enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true

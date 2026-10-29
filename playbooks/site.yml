@@ -1,4 +1,6 @@
 ---
 - import_playbook: configure_network.yml
-
 - import_playbook: packages.yml
+- import_playbook: users.yml
+- import_playbook: docker.yml
+- import_playbook: deploy_nginx.yml

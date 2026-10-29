@@ -2,3 +2,7 @@ host_interfaces:
   - name: eth1
     address: 10.2.2.10
     netmask: 255.255.255.0
+
+static_routes:
+  - network: 10.1.1.0/24
+    via: 10.2.2.1
